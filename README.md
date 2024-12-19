@@ -24,9 +24,11 @@ IDE: IntelliJ IDEA.
 
 Kurulum Adımları Aşama 1) git clone https://github.com/BarashSerbest/KisiselNotDefteri.git cd KisiselNotDefteri 
 Aşama2) Gerekli Bağımlılıkları İndirin: Projenin bağımlılıkları IDE'nizde yapılandırılmış olmalıdır. Gerekirse, harici kütüphaneleri manuel olarak ekleyin. 
-Aşama3) Veritabanını Yapılandırın: Proje dosyası içerisinde yer alan "KisiselNotDefteriDB.sql" ile veritabanını oluşturabilirsiniz veya aşağıda yazdığım kod ile veritabanını oluşturunuz: CREATE DATABASE notdefteridb; CREATE TABLE users ( id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, authority INT NOT NULL );
+Aşama3) Veritabanını Yapılandırın: Proje dosyası içerisinde yer alan "KisiselNotDefteriDB.sql" ile veritabanını oluşturabilirsiniz veya aşağıda yazdığım kod ile veritabanını oluşturunuz:
+CREATE DATABASE notdefteridb; CREATE TABLE users ( id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, authority INT NOT NULL );
 
 CREATE TABLE notes ( id INT AUTO_INCREMENT PRIMARY KEY, user_id INT NOT NULL, title VARCHAR(255) NOT NULL, content TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id) ); Aşama 4) Veritabanı Bağlantısını Güncelleyin: MySQLConnection sınıfında url, username ve password bilgilerini kendi ortamınıza uygun şekilde güncelleyin: private static final String URL = "jdbc:mysql://localhost:3306/notebook_app"; private static final String USER = "root"; private static final String PASSWORD = "password"; Aşama 5) Projeyi Çalıştırın: Uygulamayı IDE üzerinden başlatın. Varsayılan bir kullanıcı veya admin oluşturun.
+
 Üstteki adımlar uygulandığı takdirde uygulama sorunsuz çalışacaktır.
 
 Kullanım Giriş Yapın: Kullanıcı hesabınızla giriş yapın veya yeni bir hesap oluşturun. Admin yetkisine sahipseniz, "Admin Girişi" butonunu kullanarak giriş yapabilirsiniz.
